@@ -1,0 +1,26 @@
+
+
+  <div class='container'>
+      <div class='table-responsive'>
+          <h3> Skills </h3>
+          <table class='table table-bordered table-hover'>
+            <thead>
+              <tr class='active'>
+                  <td>skill_id</td>
+                  <td>skill_name</td>
+                  <td>description</td>
+
+              </tr>
+            </thead>
+            <tbody>
+              <% skills.forEach((res) => { %>
+                 <tr class='active'>
+                     <td><%= res.skill_id %></td>
+                     <td><%= res.skill_name %></td>
+                     <td><%= res.description %></td>
+                 </tr>
+              <% }); %>
+            </tbody>
+          </table>
+      </div>
+  </div>

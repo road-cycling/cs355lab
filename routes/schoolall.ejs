@@ -1,0 +1,62 @@
+<%- include("../includes/header.ejs", {title:"School"}); %>
+
+
+<div class='container'>
+    <div class='table-responsive'>
+        <h3> School </h3>
+        <table class='table table-bordered table-hover'>
+          <thead>
+            <tr class='active'>
+                <td>school_id</td>
+                <td>school_name</td>
+                <td>address_id</td>
+                <td>Delete </td>
+            </tr>
+          </thead>
+          <tbody>
+            <% school.forEach((res) => { %>
+               <tr class='active'>
+                   <td><%= res.school_id %></td>
+                   <td><%= res.school_name %></td>
+                   <td><%= res.address_id %></td>
+                   <td><a href='/school/delete/<%=res.school_name %>'>Delete</a></td>
+               </tr>
+            <% }); %>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<div class='container'>
+    <div class='jumbotron'>
+        <form action='/school/insert' method='POST'>
+            <div class='form-group'>
+                <label> school_name </label>
+                <input type='text' name='school[school_name]' class='form-control' placeholder='school_name'>
+            </div>
+            <div class='form-group'>
+                <label> address_id</label>
+                <input type='text' name='school[address_id]' class='form-control' placeholder='address_id'>
+            </div>
+            <button type='submit' class='btn btn-primary center-block'>Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class='container'>
+    <div class='jumbotron'>
+        <form action='/school/edit' method='POST'>
+            <div class='form-group'>
+                <label> school_name </label>
+                <input type='text' name='school[school_name]' class='form-control' placeholder='school_name'>
+            </div>
+            <div class='form-group'>
+                <label> Address ID</label>
+                <input type='text' name='school[address_id]' class='form-control' placeholder='address_id'>
+            </div>
+            <button type='submit' class='btn btn-primary center-block'>Submit</button>
+        </form>
+    </div>
+</div>
+
+<%- include("../includes/footer.ejs"); %>

@@ -1,0 +1,60 @@
+<%- include("../includes/header.ejs", {title:"Address"}); %>
+
+<div class='container'>
+    <div class='table-responsive'>
+        <h3> Address </h3>
+        <table class='table table-bordered table-hover'>
+          <thead>
+            <tr class='active'>
+                <td>Street</td>
+                <td>Zip</td>
+                <td>Delete</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% address.forEach((res) => { %>
+               <tr class='active'>
+                   <td><%= res.street %></td>
+                   <td><%= res.zip_code %></td>
+                   <td><a href='/address/delete/<%=res.address_id %>'>Delete</a></td>
+               </tr>
+            <% }); %>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<div class='container'>
+    <div class='jumbotron'>
+        <form action='/address/add' method='POST'>
+            <div class='form-group'>
+                <label> Street </label>
+                <input type='text' name='update[street]' class='form-control' placeholder='street'>
+            </div>
+            <div class='form-group'>
+                <label> Zip Code</label>
+                <input type='text' name='update[zip_code]' class='form-control' placeholder='zip'>
+            </div>
+            <button type='submit' class='btn btn-primary center-block'>Submit</button>
+        </form>
+    </div>
+</div>
+
+
+<div class='container'>
+    <div class='jumbotron'>
+        <form action='/address/update' method='POST'>
+            <div class='form-group'>
+                <label> Street </label>
+                <input type='text' name='update[street]' class='form-control' placeholder='email'>
+            </div>
+            <div class='form-group'>
+                <label> Address ID</label>
+                <input type='text' name='update[address_id]' class='form-control' placeholder='first_name'>
+            </div>
+            <button type='submit' class='btn btn-primary center-block'>Submit</button>
+        </form>
+    </div>
+</div>
+
+<%- include("../includes/footer.ejs"); %>

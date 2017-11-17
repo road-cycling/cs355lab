@@ -1,0 +1,69 @@
+
+<%- include("../includes/header.ejs", {title:"Current Accounts"}); %>
+
+
+<div class='container'>
+    <div class='table-responsive'>
+        <h3> Accounts </h3>
+        <table class='table table-bordered table-hover'>
+          <thead>
+            <tr class='active'>
+                <td>Email</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Delete? </td>
+            </tr>
+          </thead>
+          <tbody>
+            <% account.forEach((res) => { %>
+               <tr class='active'>
+                   <td><%= res.email %></td>
+                   <td><%= res.first_name %></td>
+                   <td><%= res.last_name %></td>
+                   <td><a href='/account/delete/<%=res.account_id %>'>Delete</a></td>
+               </tr>
+            <% }); %>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<div class='container'>
+    <div class='jumbotron'>
+        <form action='/account/insert' method='POST'>
+            <div class='form-group'>
+                <label> Email </label>
+                <input type='text' name='account[email]' class='form-control' placeholder='email'>
+            </div>
+            <div class='form-group'>
+                <label> First Name</label>
+                <input type='text' name='account[first_name]' class='form-control' placeholder='first_name'>
+            </div>
+            <div class='form-group'>
+                <label>Last Name</label>
+                <input type='text' name='account[last_name]' class='form-control' placeholder='last_name'>
+            </div>
+            <button type='submit' class='btn btn-primary center-block'>Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class='container'>
+    <div class='jumbotron'>
+        <form action='/account/edit' method='POST'>
+            <div class='form-group'>
+                <label> AccountID </label>
+                <input type='text' name='account[account_id]' class='form-control' placeholder='AccountID'>
+            </div>
+            <div class='form-group'>
+                <label> Email</label>
+                <input type='text' name='account[email]' class='form-control' placeholder='email'>
+            </div>
+            <button type='submit' class='btn btn-primary center-block'>Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+<%- include("../includes/footer.ejs"); %>
