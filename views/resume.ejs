@@ -1,0 +1,11 @@
+<%- include("./includes/header.ejs", {title:"Add "}); %>
+
+<h5> CLICK </h5>
+
+<ul>
+  <% result.forEach(item => { %>
+    <li><a href='/resume/change/<%= item.account_id %>'><%= item.resume_name %></a></li>
+  <% }); %>
+</ul>
+
+<%- include("./includes/footer.ejs"); %>
