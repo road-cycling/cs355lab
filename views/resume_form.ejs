@@ -1,16 +1,57 @@
 <%- include("./includes/header.ejs", {title:"Resume Form"}); %>
+<br> <br>
+<hr> <br>
+<div class='container'>
+  <div class='jumbotron'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <h3> Schools </h3>
+          <select id='school_name'>
+            <% schools.forEach(i => { %>
+              <option value='<%=i.school_name%>'><%= i.school_name %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div class='col-md-4'>
+          <h3> Companies </h3>
+          <select id='company_name'>
+            <% companies.forEach(i => { %>
+              <option value='<%=i.company_name%>'><%= i.company_name %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div class='col-md-4'>
+          <h3> Skills </h3>
+          <select id='skill_name'>
+            <% skills.forEach(i => { %>
+              <option value='<%=i.skill_name%>'><%= i.skill_name %></option>
+            <% }); %>
+          </select>
+        </div>
+      </div>
+      <br>
+      <div class='text-center'>
+        <p id='specialid'><%=id%></p>
+        <input type='text' id='inputbox' placeholder='resume name'>
+        <button class='btn btn-primary' id='submitter'>Click Me!</button>
+      </div>
+  </div>
+</div>
 
-<form method='' action=''>
+<script>
+  var btn = document.querySelector('#submitter');
+  btn.addEventListener('click', () => {
+    var data = {};
+    data.school_name = $("#school_name").val();
+    data.company_name = $("#company_name").val();
+    data.skill_name = $("#skill_name").val();
+    data.account_id = $("#specialid").text();
+    data.resume_name = $("#inputbox").val();
+    $.post('http://localhost:3000/resume/change', data, () => {
+      $(location).attr('href', 'http://localhost:3000/resume/add/selectuser');
+    });
 
-</form>
+  })
 
 
-A <input> text box for the name of the Resume
-
-A multi-select drop down menu for each of the school’s that user has attended
-
-A multi-select drop down menu for each of the companies that user has worked for
-
-A multi-select drop down menu for each of the skills that user has experience with
-
-<%- include("./includes/footer.ejs"); %>
+</script>
