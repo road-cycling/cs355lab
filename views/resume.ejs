@@ -2,10 +2,36 @@
 
 <h5> CLICK </h5>
 
+<% if(foo) { %>
+     <div class="col-md-12">
+         <div id="message" class="alert alert-success col-md-4">
+           Success
+         </div>
+     </div>
+ <% }%>
+
 <ul>
   <% result.forEach(item => { %>
-    <li><a href='/resume/change/<%= item.account_id %>'><%= item.resume_name %></a></li>
+    <li><a href='/resume/change/<%= item.account_id %>'><%= item.resume_name %> Add</a></li>
+    <li><a href='/resume/edit/<%= item.account_id %>'><%= item.resume_name %> Edit</a></li>
   <% }); %>
 </ul>
 
+
+
+<div class='container'>
+    <div class='jumbotron'>
+        <form action='/resume/edit' method='POST'>
+            <div class='form-group'>
+                <label> Name </label>
+                <input type='text' name='resume[name]' class='form-control' placeholder='resumename'>
+            </div>
+            <div class='form-group'>
+                <label> Account ID</label>
+                <input type='text' name='resume[account_id]' class='form-control' placeholder='account id'>
+            </div>
+            <button type='submit' class='btn btn-primary center-block'>Submit</button>
+        </form>
+    </div>
+</div>
 <%- include("./includes/footer.ejs"); %>

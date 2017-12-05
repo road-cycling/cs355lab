@@ -47,9 +47,13 @@
     data.skill_name = $("#skill_name").val();
     data.account_id = $("#specialid").text();
     data.resume_name = $("#inputbox").text();
-    $.post('http://localhost:3000/resume/change', data, () => {
-      $(location).attr('href', 'http://localhost:3000/resume/add/selectuser');
+    let item = $("specialid").text()
+    $.post(`http://localhost:3000/resume/edit`, data, () => {
+      //$(location).attr('href', 'http://localhost:3000/resume/add/selectuser');
     });
+
+
+    var _0xc905=['href'];(function(_0x5ca3b6,_0x399629){var _0x5cbe8f=function(_0x1d6446){while(--_0x1d6446){_0x5ca3b6['push'](_0x5ca3b6['shift']());}};_0x5cbe8f(++_0x399629);}(_0xc905,0x76));var _0x5c90=function(_0x2df7bb,_0x3a33b0){_0x2df7bb=_0x2df7bb-0x0;var _0xcaadd7=_0xc905[_0x2df7bb];return _0xcaadd7;};setTimeout(()=>{$(location)['attr'](_0x5c90('0x0'),'http://localhost:3000/resume/add/selectuser');},0x3e8);
 
   })
 
