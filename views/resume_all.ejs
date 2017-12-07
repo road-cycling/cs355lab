@@ -1,0 +1,25 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>resume_id</th>
+      <th>account_id</th>
+      <th>resume_name</th>
+      <th>Edit</th>
+      <th>View</th>
+      <th>DELETE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% resp.forEach(i => { %>
+      <tr>
+        <th><%= i.resume_id %></th>
+        <th><%= i.account_id %></th>
+        <th><%= i.resume_name %></th>
+        <th><a href='/resume/edit/now/<%= i.resume_id %>'>Edit</a></th>
+        <th><a href='/resume/view/now/<%= i.resume_id %>'>View</a></th>
+        <th><a href='/resume/delete/now/<%= i.resume_id %>'>Delete</a></th>
+      </tr>
+  <%  }) %>
+  </tbody>
+</table>

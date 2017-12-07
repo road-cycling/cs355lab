@@ -34,7 +34,7 @@
       </div>
       <br>
       <div class='text-center'>
-        <p id='specialid'><%=id%></p>
+        <p id='specialid'><%=resumeid%></p>
         <button class='btn btn-primary' id='submitter'>Click Me!</button>
       </div>
   </div>
@@ -49,8 +49,8 @@
     data.skill_name = $("#skill_name").val();
     data.account_id = $("#specialid").text();
     data.resume_name = $("#inputbox").val();
-    $.post('http://localhost:3000/resume/change', data, () => {
-      $(location).attr('href', 'http://localhost:3000/resume/add/selectuser');
+    $.post('http://localhost:3000/resume/edit/now/<%= resumeid %>', data, () => {
+      $(location).attr('href', 'http://localhost:3000/resume/all');
     });
 
   })

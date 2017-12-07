@@ -12,8 +12,8 @@
 
 <ul>
   <% result.forEach(item => { %>
-    <li><a href='/resume/change/<%= item.account_id %>'><%= item.resume_name %> Add</a></li>
-    <li><a href='/resume/edit/<%= item.account_id %>'><%= item.resume_name %> Edit</a></li>
+    <li><a href='/resume/change/<%= item.account_id %>'><%= item.email %> Add</a></li>
+    <li><a href='/resume/edit/<%= item.account_id %>'><%= item.email %> Edit</a></li>
   <% }); %>
 </ul>
 

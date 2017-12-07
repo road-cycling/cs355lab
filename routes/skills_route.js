@@ -9,4 +9,16 @@ router.get('/all', (req, res) => {
   .catch(err => res.send(err));
 });
 
+router.post('/insert', (req, res) => {
+  inserts.insert('skill', req.body.skill)
+  .then(setTimeout(() => res.redirect('/skills/all'), 1000))
+  .catch(err => res.send(err));
+})
+
+router.post('/insert/item', (req, res) => {
+  skills.update(req.body.skill)
+  .then(setTimeout(() => res.redirect('/skills/all'), 1000))
+  .catch(err => res.send(err));
+})
+
 module.exports = router;

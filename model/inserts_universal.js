@@ -5,12 +5,10 @@ var db  = require('./db_connection.js');
 var connection = mysql.createConnection(db.config);
 
 exports.insert = (item, data) => {
-  console.log('called');
   return new Promise((resolve, reject) => {
     let myquery = `insert into ${item} set ?`;
-    console.log(`myquery: ${myquery}`);
-    console.log(`this is my data ${data}`);
     connection.query(myquery, data, (err, result) => {
+      console.log(`${err} ${result}`);
       err ? reject(err) : resolve(result);
     });
   })
